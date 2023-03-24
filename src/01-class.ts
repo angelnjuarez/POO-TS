@@ -1,15 +1,3 @@
-const date = new Date();
-date.getHours();
-date.getTime();
-date.toISOString();
-
-const date2 = new Date(2020, 1, 12);
-date2.toISOString();
-date2.getHours();
-
-console.log(date);
-console.log(date2);
-
 class MyDate{
     year: number;
     month: number;
@@ -20,7 +8,24 @@ class MyDate{
         this.month = month;
         this.day = day;
     }
+
+    printFormat(): string{
+        return `${this.year}/${this.month}/${this.day}`;
+    }
+
+    add(amount: number, type: 'day' | 'month' | 'years'){
+        if(type === 'day'){
+            this.day += amount;
+        }else if(type === 'month'){
+            this.month += amount; 
+        } else if(type === 'years'){
+            this.year += amount;
+        }
+    }
 }
 
-const myDate = new MyDate(2020, 12, 20); //Instance of MyDate
-console.log(myDate);
+const myDate = new MyDate(2020, 1, 1);
+console.log(myDate.printFormat());
+myDate.add(3, 'day');
+console.log(myDate.printFormat());
+console.log(myDate.day);

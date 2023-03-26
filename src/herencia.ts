@@ -1,6 +1,6 @@
 export class Animal {
     constructor(
-        public name: string
+        protected name: string //protected: solo se puede acceder desde la clase o sus clases hijas
     ){}
 
     public move(){
@@ -10,8 +10,11 @@ export class Animal {
     public greeting(){
         return `Hello, I'm ${this.name}`;
     }
-}
 
+    protected doSomething(){
+        console.log('I am doing something');
+    }
+}
 export class Dog extends Animal { //Extends: Herencia
     constructor(
         name: string,
@@ -22,7 +25,12 @@ export class Dog extends Animal { //Extends: Herencia
 
     public woof(times: number){
         for(let i = 0; i < times; i++){
-            console.log('Woof!');
+            console.log('Woof! ${this.name}');
         }
+    }
+
+    public move(): void {
+        console.log('Running as a dog');
+        super.move();//Llama al metodo move de la clase padre
     }
 }

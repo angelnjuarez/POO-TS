@@ -7,7 +7,7 @@ export class ProductHttpService implements ProductService {
     private static instance: ProductHttpService | null = null;
     private url = 'http://api.escuelajs.co/api/v1/products'
 
-    private constructor() { }
+    private constructor() {}
 
     static create(){
         if(this.instance === null){

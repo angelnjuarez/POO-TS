@@ -1,0 +1,11 @@
+import { Dog } from "./herencia";
+
+function getValue<T>(value: T){ //T type, V value, K key, E element
+    return value;
+}
+
+getValue<number>(123).toFixed(2); //Tipado como parametro
+getValue<string>("123").toUpperCase();
+
+const fifi = new Dog('Fifi', 'Jorge');
+getValue<Dog>(fifi).woof(3); //Pueden ser clases
